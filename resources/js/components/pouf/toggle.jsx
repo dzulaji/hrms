@@ -1,0 +1,35 @@
+import * as RToggle from '@radix-ui/react-toggle-group'
+import clsx from 'clsx'
+import { buttonClasses } from './Button'
+import { renderIcon } from './Icon'
+
+export function ToggleGroup({
+  value,
+  onChange,
+  options,
+  label,
+  tone = 'purple'
+}) {
+  return (
+    <RToggle.Root
+      type="multiple"
+      value={value}
+      onValueChange={onChange}
+      className="pouf-toggle inline-flex flex-wrap gap-(--s2)"
+      aria-label={label}
+    >
+      {options.map((o) => (
+        // Literal pouf-btn classes, like Segmented: an "on" item is pressed in
+        // (pouf-toggle__item[data-state='on']), never merely re-coloured.
+        <RToggle.Item
+          key={o.value}
+          value={o.value}
+          className={clsx(buttonClasses({ size: 'sm', tone }), 'pouf-toggle__item data-[state=on]:[transform:translateY(2px)] data-[state=on]:cushion-control-active')}
+        >
+          {o.icon && renderIcon(o.icon, 'sm')}
+          {o.label}
+        </RToggle.Item>
+      ))}
+    </RToggle.Root>
+  )
+}
