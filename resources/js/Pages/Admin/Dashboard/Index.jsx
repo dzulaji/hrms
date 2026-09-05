@@ -29,7 +29,7 @@ const chartData = [
 ];
 export default function Dashboard() {
   return (
-    <AdminLayout title="Dashboard" breadcrumb={[{ label: 'Dashboard' }]}>
+    <AdminLayout>
       <Head title="Dashboard" />
       
       <div className="flex flex-col gap-6 p-4">

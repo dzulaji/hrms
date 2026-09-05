@@ -23,7 +23,7 @@ export default function Index({ karyawan = [] }) {
   ];
 
   return (
-    <AdminLayout title="Data Karyawan" breadcrumb={[{ label: 'Karyawan' }]}>
+    <AdminLayout>
       <Head title="Data Karyawan" />
       
       <div className="flex flex-col gap-6 p-4">
